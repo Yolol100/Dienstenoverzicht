@@ -1,0 +1,274 @@
+:root {
+    /* Kleurenvariabelen */
+    --primary-color: #007bff; /* Blauw */
+    --primary-color-hover: #0056b3; /* Donkerblauw voor hover */
+    --success-color: #28a745; /* Groen */
+    --success-color-hover: #218838; /* Donkergroen voor hover */
+    --error-color: #dc3545; /* Rood voor fouten */
+    --error-color-hover: #c82333; /* Donkerder rood voor hover */
+    --background-color: #ffffff; /* Wit */
+    --secondary-background-color: #f9f9f9; /* Lichtgrijs */
+    --border-color: #e1e1e1; /* Grijs */
+    --text-color: #000000; /* Zwart */
+    --text-color-light: #ffffff; /* Lichtkleur voor tekst bij hover */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Typografievariabelen */
+    --font-family: 'Arial, sans-serif';
+    --font-size-large: clamp(1.5rem, 2vw, 2.2rem);
+    --font-size-medium: clamp(1.25rem, 1.8vw, 1.6rem);
+    --font-size-small: clamp(1rem, 1.2vw, 1.2rem);
+    --font-size-xsmall: clamp(0.875rem, 1vw, 1rem);
+    
+    /* Nieuwe variabele voor label font size (optioneel) */
+    --font-size-label: clamp(1rem, 1.2vw, 1.2rem);
+
+    /* Afstanden en padding */
+    --padding-large: 1.25rem;
+    --padding-medium: 1rem;
+    --padding-small: 0.75rem;
+    --padding-xsmall: 0.5rem;
+    --border-radius: 0.5rem;
+    --box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
+
+    /* Overgangsvariabelen */
+    --transition-speed: 0.3s;
+    --transition-ease: ease;
+}
+
+/* Basisstijl voor de instellingenpagina van Dienstenoverzicht */
+.dienstenoverzicht-settings-wrap {
+    background-color: var(--background-color);
+    padding: var(--padding-large);
+    border-radius: var(--border-radius);
+    max-width: 80em;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    margin: var(--padding-large) 0;
+    overflow: hidden;
+    font-family: var(--font-family);
+}
+
+/* Titel styling aanpassen */
+.dienstenoverzicht-settings-title {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--padding-large);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* Specifieke styling voor metabox titels */
+#dienstenoverzicht_details .hndle {
+    font-size: 1.4em; /* Grotere font size */
+    font-weight: bold; /* Dikkere tekst */
+    margin-bottom: 15px; /* Meer afstand onder de titel */
+}
+
+#dienstenoverzicht_details .hndle div {
+    margin-bottom: 15px; /* Meer afstand onder de titel */
+}
+
+/* Stijl voor het instellingenformulier aanpassen */
+.dienstenoverzicht-settings-form {
+    padding: var(--padding-small) 0;
+}
+
+/* Invoervelden */
+.dienstenoverzicht-settings-input,
+.meta-box-field textarea {
+    width: 100%;
+    padding: var(--padding-small);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-small);
+    background-color: var(--background-color);
+    box-shadow: inset 0 0.0625em 0.1875em var(--shadow-color);
+    margin-bottom: var(--padding-medium);
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed) var(--transition-ease), 
+                box-shadow var(--transition-speed) var(--transition-ease);
+}
+
+.dienstenoverzicht-settings-input:focus,
+.meta-box-field textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.125em rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Checkbox styling */
+.dienstenoverzicht-settings-checkbox {
+    transform: scale(1.2);
+    margin-right: var(--padding-small);
+    vertical-align: middle;
+}
+
+/* Tabel styling */
+.dienstenoverzicht-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+}
+
+.dienstenoverzicht-table th,
+.dienstenoverzicht-table td {
+    text-align: left;
+    padding: 0.75em;
+    vertical-align: middle;
+    font-size: var(--font-size-small);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dienstenoverzicht-table th {
+    background-color: var(--secondary-background-color);
+    font-weight: bold;
+}
+
+/* Achtergrondkleur voor even rijen */
+.dienstenoverzicht-table tbody tr:nth-child(even) {
+    background-color: var(--secondary-background-color);
+}
+
+/* Hover effect voor rijen */
+.dienstenoverzicht-table tbody tr:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed) var(--transition-ease), 
+                color var(--transition-speed) var(--transition-ease), 
+                box-shadow var(--transition-speed) var(--transition-ease);
+}
+
+/* Gemeenschappelijke knopstijl */
+.button,
+.table-button,
+.import-csv-button,
+.dienstenoverzicht-settings-form input[type="submit"].button-primary {
+    font-size: var(--font-size-xsmall);
+    padding: var(--padding-xsmall) var(--padding-small);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color-light);
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) var(--transition-ease), 
+                box-shadow var(--transition-speed) var(--transition-ease), 
+                border-color var(--transition-speed) var(--transition-ease);
+    outline: none;
+    margin: 0.5em 0;
+}
+
+.button:hover,
+.table-button:hover,
+.import-csv-button:hover,
+.dienstenoverzicht-settings-form input[type="submit"].button-primary:hover {
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
+    box-shadow: 0 0.125em 0.625em rgba(0, 123, 255, 0.3);
+}
+
+.button:focus,
+.table-button:focus,
+.import-csv-button:focus,
+.dienstenoverzicht-settings-form input[type="submit"].button-primary:focus {
+    box-shadow: 0 0 0 0.25em rgba(0, 123, 255, 0.3);
+}
+
+/* Extra stijl voor waarschuwingen en meldingen */
+.updated.notice.is-dismissible,
+.error.notice.is-dismissible {
+    max-width: calc(80em - 2 * var(--padding-large));
+    margin: 0;
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-size: var(--font-size-small);
+    text-align: left;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    height: auto;
+    line-height: 1.5;
+}
+
+.updated.notice.is-dismissible {
+    background-color: var(--background-color);
+    border-left: 4px solid var(--success-color-hover);
+}
+
+.error.notice.is-dismissible {
+    background-color: var(--error-color);
+    border-left: 4px solid var(--error-color-hover);
+}
+
+/* Stijl voor custom admin metaboxes */
+.meta-box-field {
+    margin-bottom: var(--padding-medium);
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-box-field label {
+    font-weight: 700; /* Dikkere tekst */
+    font-size: var(--font-size-label); /* Verkleinde font size */
+    margin-bottom: var(--padding-small);
+}
+
+.meta-box-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--padding-small);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-small);
+    background-color: #fdfdfd;
+    transition: border-color var(--transition-speed) var(--transition-ease), 
+                box-shadow var(--transition-speed) var(--transition-ease);
+}
+
+/* Responsiviteit */
+@media (max-width: 1024px) {
+    /* Extra breakpoint voor tablets */
+    .dienstenoverzicht-settings-wrap {
+        max-width: 90em;
+    }
+}
+
+@media (max-width: 768px) {
+    .dienstenoverzicht-settings-wrap {
+        padding: var(--padding-medium) !important;
+    }
+
+    .button,
+    .table-button,
+    .import-csv-button,
+    .dienstenoverzicht-settings-form input[type="submit"].button-primary {
+        padding: var(--padding-small) var(--padding-medium) !important;
+        font-size: var(--font-size-small) !important;
+    }
+
+    .dienstenoverzicht-settings-title {
+        font-size: var(--font-size-medium) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra responsieve aanpassingen voor mobiele apparaten */
+    .dienstenoverzicht-settings-wrap {
+        padding: var(--padding-small) !important;
+    }
+
+    .dienstenoverzicht-table th,
+    .dienstenoverzicht-table td {
+        padding: 0.5em;
+        font-size: var(--font-size-xsmall);
+    }
+
+    .dienstenoverzicht-settings-title {
+        font-size: var(--font-size-small) !important;
+    }
+}

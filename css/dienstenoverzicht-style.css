@@ -1,0 +1,440 @@
+:root {
+    /* ---------------------------
+       KLEURENVARIABELEN
+    --------------------------- */
+    /* Primaire kleuren */
+    --dienstenoverzicht-primary-color: #007bff; /* Blauw */
+    --dienstenoverzicht-primary-color-hover: #0056b3; /* Donkerblauw voor hover */
+
+    /* Success kleuren */
+    --dienstenoverzicht-success-color: #28a745; /* Groen */
+    --dienstenoverzicht-success-color-hover: #218838; /* Donkergroen voor hover */
+
+    /* Error kleuren */
+    --dienstenoverzicht-error-color: #dc3545; /* Rood voor fouten */
+    --dienstenoverzicht-error-color-hover: #c82333; /* Donkerder rood voor hover */
+
+    /* Achtergrondkleuren */
+    --dienstenoverzicht-background-color-light: #f4f4f4;
+    --dienstenoverzicht-background-color-dark: #1e1e1e;
+    --dienstenoverzicht-background-color: var(--dienstenoverzicht-background-color-light); /* Standaard licht */
+
+    /* Tekstkleuren */
+    --dienstenoverzicht-text-color-light: #333;
+    --dienstenoverzicht-text-color-dark: #e0e0e0;
+    --dienstenoverzicht-text-color: var(--dienstenoverzicht-text-color-light); /* Standaard licht */
+
+    /* Linkkleuren */
+    --dienstenoverzicht-link-color-light: #007BFF;
+    --dienstenoverzicht-link-color-dark: #4fc3f7;
+    --dienstenoverzicht-link-color: var(--dienstenoverzicht-link-color-light); /* Standaard licht */
+
+    /* Border kleuren */
+    --dienstenoverzicht-border-color-light: #ddd;
+    --dienstenoverzicht-border-color-dark: #333;
+    --dienstenoverzicht-border-color: var(--dienstenoverzicht-border-color-light); /* Standaard licht */
+
+    /* Button kleuren */
+    --dienstenoverzicht-button-bg-color-light: #007BFF;
+    --dienstenoverzicht-button-bg-color-dark: #005a87;
+    --dienstenoverzicht-button-bg-color: var(--dienstenoverzicht-button-bg-color-light); /* Standaard licht */
+
+    --dienstenoverzicht-button-hover-bg-color-light: #28A745;
+    --dienstenoverzicht-button-hover-bg-color-dark: #004d6d;
+    --dienstenoverzicht-button-hover-bg-color: var(--dienstenoverzicht-button-hover-bg-color-light); /* Standaard licht */
+
+    /* Box shadows */
+    --dienstenoverzicht-box-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --dienstenoverzicht-box-shadow-dark: 0 12px 24px rgba(0, 0, 0, 0.15);
+    --dienstenoverzicht-box-shadow: var(--dienstenoverzicht-box-shadow-light); /* Standaard licht */
+
+    /* ---------------------------
+       TYPOGRAFIEVARIABELEN
+    --------------------------- */
+    --dienstenoverzicht-font-family: 'Roboto', sans-serif;
+    --dienstenoverzicht-font-size-large: clamp(1.2rem, 4vw, 1.8rem);
+    --dienstenoverzicht-font-size-medium: 1rem;
+    --dienstenoverzicht-font-size-small: 0.875rem;
+    --dienstenoverzicht-font-size-xsmall: 0.75rem;
+    --dienstenoverzicht-font-weight-bold: bold;
+
+    /* ---------------------------
+       AFSTANDEN EN PADDING
+    --------------------------- */
+    --dienstenoverzicht-spacing: clamp(1rem, 2vw, 1.5rem);
+    --dienstenoverzicht-padding-small: 0.25rem;
+    --dienstenoverzicht-padding-medium: 0.5rem;
+    --dienstenoverzicht-padding-large: 1rem; /* Nieuwe padding variabele toegevoegd */
+
+    /* ---------------------------
+       OVERGANGSVARIABELEN
+    --------------------------- */
+    --dienstenoverzicht-transition-speed: 0.3s;
+    --dienstenoverzicht-transition-ease: ease;
+}
+
+/* ---------------------------
+   DARK MODE AANPASSINGEN
+--------------------------- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dienstenoverzicht-background-color: var(--dienstenoverzicht-background-color-dark);
+        --dienstenoverzicht-text-color: var(--dienstenoverzicht-text-color-dark);
+        --dienstenoverzicht-link-color: var(--dienstenoverzicht-link-color-dark);
+        --dienstenoverzicht-border-color: var(--dienstenoverzicht-border-color-dark);
+        --dienstenoverzicht-button-bg-color: var(--dienstenoverzicht-button-bg-color-dark);
+        --dienstenoverzicht-button-hover-bg-color: var(--dienstenoverzicht-button-hover-bg-color-dark);
+        --dienstenoverzicht-box-shadow: var(--dienstenoverzicht-box-shadow-dark);
+    }
+}
+
+/* ---------------------------
+   LIGHT MODE AANPASSINGEN
+--------------------------- */
+@media (prefers-color-scheme: light) {
+    :root {
+        --dienstenoverzicht-background-color: var(--dienstenoverzicht-background-color-light);
+        --dienstenoverzicht-text-color: var(--dienstenoverzicht-text-color-light);
+        --dienstenoverzicht-link-color: var(--dienstenoverzicht-link-color-light);
+        --dienstenoverzicht-border-color: var(--dienstenoverzicht-border-color-light);
+        --dienstenoverzicht-button-bg-color: var(--dienstenoverzicht-button-bg-color-light);
+        --dienstenoverzicht-button-hover-bg-color: var(--dienstenoverzicht-button-hover-bg-color-light);
+        --dienstenoverzicht-box-shadow: var(--dienstenoverzicht-box-shadow-light);
+    }
+}
+
+/* ---------------------------
+   ALGEMENE STIJLEN VOOR DE BODY
+--------------------------- */
+body {
+    background-color: var(--dienstenoverzicht-background-color);
+    color: var(--dienstenoverzicht-text-color);
+    font-family: var(--dienstenoverzicht-font-family);
+    font-size: var(--dienstenoverzicht-font-size-medium);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+}
+
+/* ---------------------------
+   ALGEMENE STIJLEN VOOR DIENSTENOVERZICHT
+--------------------------- */
+.dienstenoverzicht-container {
+    width: 100%;
+    padding: var(--dienstenoverzicht-spacing);
+    box-sizing: border-box;
+}
+
+.dienstenoverzicht-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--dienstenoverzicht-spacing);
+}
+
+.dienstenoverzicht-title {
+    font-size: clamp(1.8rem, 3vw, 2rem);
+    color: var(--dienstenoverzicht-text-color);
+    text-align: left;
+    flex-grow: 1;
+}
+
+.dienst-filter-input {
+    padding: var(--dienstenoverzicht-padding-medium);
+    font-size: var(--dienstenoverzicht-font-size-small);
+    border: 1px solid var(--dienstenoverzicht-border-color);
+    flex-shrink: 0;
+    margin-left: var(--dienstenoverzicht-spacing);
+    width: 150px;
+    text-align: right;
+    transition: border-color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                box-shadow var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+}
+
+.dienst-filter-input:focus {
+    border-color: var(--dienstenoverzicht-primary-color);
+    box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.dienstenoverzicht {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--dienstenoverzicht-spacing);
+    background-color: var(--dienstenoverzicht-background-color);
+    width: 100%;
+}
+
+/* ---------------------------
+   STIJLEN VOOR DIENSTENKAARTEN
+--------------------------- */
+.dienst {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid var(--dienstenoverzicht-border-color);
+    box-shadow: var(--dienstenoverzicht-box-shadow);
+    overflow: hidden;
+    transition: transform var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                box-shadow var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+    will-change: transform, box-shadow;
+}
+
+.dienst:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--dienstenoverzicht-box-shadow-dark);
+}
+
+.dienst-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.dienst-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                filter var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+}
+
+.dienst-image img:hover {
+    filter: brightness(0.9);
+    transform: scale(1.05);
+}
+
+.dienst-content {
+    padding: var(--dienstenoverzicht-spacing);
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+    container-type: inline-size;
+}
+
+.dienst-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--dienstenoverzicht-text-color);
+}
+
+.dienst-content p {
+    margin: 0 0 1rem;
+    font-size: var(--dienstenoverzicht-font-size-medium);
+    color: #666;
+}
+
+/* ---------------------------
+   STIJLEN VOOR KNOPPEN
+--------------------------- */
+.dienst-content a.button.gratis-advies-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--dienstenoverzicht-padding-large) var(--dienstenoverzicht-padding-large); /* Verhoogde padding */
+    padding-left: calc(var(--dienstenoverzicht-padding-large) * 0.75); /* Minder padding aan de linkerkant */
+    background-color: var(--dienstenoverzicht-button-bg-color);
+    color: #fff;
+    text-decoration: none;
+    font-weight: var(--dienstenoverzicht-font-weight-bold);
+    margin-top: auto;
+    transition: background-color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                box-shadow var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button.gratis-advies-button {
+    /* Extra styling indien nodig */
+}
+
+.secondary-button {
+    background-color: var(--dienstenoverzicht-button-bg-color);
+    color: #fff;
+    border: none;
+    padding: var(--dienstenoverzicht-padding-large) var(--dienstenoverzicht-padding-large); /* Verhoogde padding */
+    padding-left: calc(var(--dienstenoverzicht-padding-large) * 0.75); /* Minder padding aan de linkerkant */
+    font-size: var(--dienstenoverzicht-font-size-xsmall);
+    font-weight: var(--dienstenoverzicht-font-weight-bold);
+    cursor: pointer;
+    transition: background-color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                box-shadow var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+    outline: none;
+}
+
+.button.gratis-advies-button i,
+.secondary-button .icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+.dienst-content a.button.gratis-advies-button:hover,
+.secondary-button:hover {
+    background-color: var(--dienstenoverzicht-button-hover-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dienst-content a.button.gratis-advies-button:focus,
+.secondary-button:focus {
+    border: 2px solid var(--dienstenoverzicht-link-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* ---------------------------
+   PRIJZEN SECTIE
+--------------------------- */
+.dienst-pricing {
+    padding: var(--dienstenoverzicht-spacing);
+    background-color: #f9f9f9;
+    border-top: 1px solid var(--dienstenoverzicht-border-color);
+}
+
+.prijzen-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.prijs-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--dienstenoverzicht-padding-medium);
+    padding: var(--dienstenoverzicht-padding-small);
+    background-color: #fff;
+    border: 1px solid var(--dienstenoverzicht-border-color);
+    align-items: center;
+}
+
+.prijs-title {
+    font-size: var(--dienstenoverzicht-font-size-medium);
+    color: var(--dienstenoverzicht-text-color);
+    flex-basis: 40%;
+    text-align: left;
+}
+
+.prijs-value {
+    font-size: var(--dienstenoverzicht-font-size-medium);
+    color: var(--dienstenoverzicht-link-color);
+    flex-basis: 60%;
+    text-align: right;
+}
+
+/* ---------------------------
+   ZOEKBALK
+--------------------------- */
+.search-bar {
+    width: 100%;
+    max-width: 300px;
+    padding: var(--dienstenoverzicht-padding-small);
+    margin-bottom: var(--dienstenoverzicht-padding-medium);
+    border: 1px solid var(--dienstenoverzicht-border-color);
+    font-size: var(--dienstenoverzicht-font-size-small);
+    transition: border-color var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease), 
+                box-shadow var(--dienstenoverzicht-transition-speed) var(--dienstenoverzicht-transition-ease);
+}
+
+.search-bar:focus {
+    border-color: var(--dienstenoverzicht-primary-color);
+    box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* ---------------------------
+   MESSAGES EN LOADER
+--------------------------- */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--dienstenoverzicht-text-color);
+    font-size: var(--dienstenoverzicht-font-size-medium);
+    margin-top: var(--dienstenoverzicht-spacing);
+}
+
+.dienst-loader {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: var(--dienstenoverzicht-font-size-medium);
+    color: var(--dienstenoverzicht-text-color);
+}
+
+/* ---------------------------
+   MEDIA QUERIES
+--------------------------- */
+
+/* Tablet weergave */
+@media (max-width: 1200px) {
+    .dienstenoverzicht {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Middelgrote schermen */
+@media (max-width: 768px) {
+    .dienstenoverzicht-container {
+        padding: 0 2rem;
+    }
+
+    .dienstenoverzicht-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dienstenoverzicht-title {
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .dienst-filter-input {
+        width: auto;
+        max-width: none;
+        text-align: right;
+        margin-left: var(--dienstenoverzicht-spacing);
+        margin-top: 0;
+    }
+}
+
+/* Mobiele weergave */
+@media (max-width: 480px) {
+    .dienstenoverzicht-container {
+        padding: 0 1rem;
+    }
+
+    .dienstenoverzicht-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dienstenoverzicht-title {
+        text-align: center;
+        margin-bottom: var(--dienstenoverzicht-spacing);
+    }
+
+    .dienst-filter-input {
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+        margin-left: 0;
+        margin-top: var(--dienstenoverzicht-spacing);
+    }
+
+    .dienst-content a.button.gratis-advies-button {
+        padding: var(--dienstenoverzicht-padding-large);
+        font-size: var(--dienstenoverzicht-font-size-xsmall);
+    }
+
+    .prijs-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .prijs-title,
+    .prijs-value {
+        flex-basis: 100%;
+        text-align: left;
+    }
+}
