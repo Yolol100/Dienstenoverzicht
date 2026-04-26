@@ -206,21 +206,23 @@ final class Dienstenoverzicht_ImportExport {
 		self::assert_manage_permission();
 		check_admin_referer( 'import_diensten_nonce', 'import_diensten_nonce_field' );
 
-		if ( empty( $_FILES['import_file']['tmp_name'] ) || ! is_uploaded_file( $_FILES['import_file']['tmp_name'] ) ) {
+		$file = isset( $_FILES['import_file'] ) && is_array( $_FILES['import_file'] ) ? $_FILES['import_file'] : null;
+
+		if ( ! $file || empty( $file['tmp_name'] ) || ! is_uploaded_file( $file['tmp_name'] ) ) {
 			wp_die( esc_html__( 'Geen bestand geüpload.', self::TEXT_DOMAIN ) );
 		}
 
-		$file_tmp_name = sanitize_text_field( wp_unslash( $_FILES['import_file']['tmp_name'] ) );
-		$file_name     = isset( $_FILES['import_file']['name'] ) ? sanitize_file_name( wp_unslash( $_FILES['import_file']['name'] ) ) : '';
-		$file_size     = isset( $_FILES['import_file']['size'] ) ? absint( $_FILES['import_file']['size'] ) : 0;
-		$file_error    = isset( $_FILES['import_file']['error'] ) ? absint( $_FILES['import_file']['error'] ) : UPLOAD_ERR_NO_FILE;
-		$file_type     = wp_check_filetype( $file_name, [ 'csv' => 'text/csv' ] );
+		$file_tmp_name = (string) $file['tmp_name'];
+		$file_name     = isset( $file['name'] ) ? sanitize_file_name( wp_unslash( $file['name'] ) ) : '';
+		$file_size     = isset( $file['size'] ) ? absint( $file['size'] ) : 0;
+		$file_error    = isset( $file['error'] ) ? absint( $file['error'] ) : UPLOAD_ERR_NO_FILE;
+		$file_type     = wp_check_filetype_and_ext( $file_tmp_name, $file_name, [ 'csv' => 'text/csv' ] );
 
 		if ( UPLOAD_ERR_OK !== $file_error ) {
 			wp_die( esc_html__( 'Het CSV-bestand kon niet worden geüpload.', self::TEXT_DOMAIN ) );
 		}
 
-		if ( 'csv' !== $file_type['ext'] ) {
+		if ( empty( $file_type['ext'] ) || 'csv' !== $file_type['ext'] ) {
 			wp_die( esc_html__( 'Alleen CSV-bestanden zijn toegestaan.', self::TEXT_DOMAIN ) );
 		}
 
@@ -246,7 +248,7 @@ final class Dienstenoverzicht_ImportExport {
 	 * Imports CSV rows from a temporary upload path.
 	 */
 	private static function import_csv_file( string $file_path ): int {
-		$handle = fopen( $file_path, 'r' );
+		$handle = fopen( $file_path, 'rb' );
 
 		if ( false === $handle ) {
 			wp_die( esc_html__( 'Het CSV-bestand kon niet worden gelezen.', self::TEXT_DOMAIN ) );
