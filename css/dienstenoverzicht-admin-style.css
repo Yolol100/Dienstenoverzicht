@@ -1,0 +1,45 @@
+.dienstenoverzicht-settings-wrap,
+.dienstenoverzicht-import-export-wrap {
+	max-width: 960px;
+}
+
+.dienstenoverzicht-settings-wrap .form-table input[type="text"],
+.dienstenoverzicht-settings-wrap .form-table input[type="number"],
+.dienstenoverzicht-import-export-wrap input[type="search"] {
+	max-width: 420px;
+	width: 100%;
+}
+
+#dienstenoverzicht_details .meta-box-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 0 0 16px;
+}
+
+#dienstenoverzicht_details .meta-box-field label {
+	font-weight: 600;
+}
+
+#dienstenoverzicht_details .meta-box-field textarea {
+	min-height: 90px;
+}
+
+.dienstenoverzicht-table-dienstenoverzicht .check-column {
+	width: 2.2em;
+}
+
+.dienstenoverzicht-table-dienstenoverzicht .dienst-title {
+	font-weight: 600;
+}
+
+.dienstenoverzicht-import-export-wrap hr {
+	margin: 28px 0;
+}
+
+@media screen and (max-width: 782px) {
+	.dienstenoverzicht-settings-wrap,
+	.dienstenoverzicht-import-export-wrap {
+		max-width: 100%;
+	}
+}

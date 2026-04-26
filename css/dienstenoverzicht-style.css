@@ -1,0 +1,133 @@
+.dienstenoverzicht-container {
+    --dienstenoverzicht-gap: 1.25rem;
+    --dienstenoverzicht-border-color: #e5e7eb;
+    --dienstenoverzicht-card-bg: #ffffff;
+    --dienstenoverzicht-text-color: #1f2937;
+    --dienstenoverzicht-muted-color: #4b5563;
+    --dienstenoverzicht-button-hover-color: #005a87;
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--dienstenoverzicht-text-color);
+}
+
+.dienstenoverzicht-container *,
+.dienstenoverzicht-container *::before,
+.dienstenoverzicht-container *::after {
+    box-sizing: border-box;
+}
+
+.dienstenoverzicht-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: var(--dienstenoverzicht-gap);
+}
+
+.dienstenoverzicht-title {
+    margin: 0;
+    flex: 1 1 220px;
+}
+
+.dienstenoverzicht-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.dienstenoverzicht-filter select,
+.dienstenoverzicht-header .search-bar {
+    min-height: 2.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--dienstenoverzicht-border-color);
+    border-radius: 0.375rem;
+}
+
+.dienstenoverzicht {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--dienstenoverzicht-gap);
+}
+
+.dienst {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--dienstenoverzicht-border-color);
+    border-radius: 0.75rem;
+    background: var(--dienstenoverzicht-card-bg);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.dienst-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.dienst-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.dienst-title,
+.dienst-summary,
+.prijs-item {
+    margin: 0;
+}
+
+.dienst-summary {
+    color: var(--dienstenoverzicht-muted-color);
+}
+
+.dienst-pricing {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: auto;
+}
+
+.gratis-advies-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+    padding: 0.65rem 1rem;
+    border-radius: 0.375rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.gratis-advies-button:hover,
+.gratis-advies-button:focus {
+    background-color: var(--dienstenoverzicht-button-hover-color, #005a87);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.gratis-advies-button:focus-visible,
+.dienstenoverzicht-filter select:focus-visible,
+.dienstenoverzicht-header .search-bar:focus-visible {
+    outline: 3px solid rgba(0, 115, 170, 0.35);
+    outline-offset: 2px;
+}
+
+.dienst[hidden],
+.no-results[hidden] {
+    display: none;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed var(--dienstenoverzicht-border-color);
+    border-radius: 0.5rem;
+}
