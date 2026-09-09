@@ -2,9 +2,9 @@
 Contributors: webactueel
 Tags: diensten, shortcode, custom post type, csv, import, export
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Toont een veilig, beheerbaar dienstenoverzicht via het custom post type Diensten
 
 Dienstenoverzicht Plugin registreert een custom post type voor diensten, een categorie-taxonomie, metaboxen voor prijsinformatie en samenvatting, een shortcode met categorie- en zoekfiltering en CSV import/export voor beheerders.
 
-De plugin gebruikt WordPress-native APIs, nonce/capability checks, gescoped assets en veilige escaping/sanitization voor admin- en frontend-output.
+De plugin gebruikt WordPress-native APIs, nonce/capability checks, gescopen assets en veilige escaping/sanitization voor admin- en frontend-output.
 
 == Installation ==
 
@@ -34,6 +34,10 @@ Gebruik [dienstenoverzicht]. Optioneel kun je een startcategorie meegeven met [d
 Nee. De uninstall-handler verwijdert alleen pluginopties. Diensten blijven bewust bewaard om onbedoeld dataverlies te voorkomen.
 
 == Changelog ==
+
+= 3.0.1 =
+* Compatibiliteit gecontroleerd in een schone runtime op WordPress 6.0/PHP 7.4 en WordPress 7.1/PHP 8.3.
+* GitHub Actions-compatibiliteitsgate toegevoegd voor toekomstige WordPress-upgrades.
 
 = 3.0.0 =
 * Release-hardening voor security, WPCS-readiness, accessibility en packaging.

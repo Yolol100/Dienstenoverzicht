@@ -3,13 +3,13 @@
  * Plugin Name: Dienstenoverzicht Plugin
  * Plugin URI: https://webactueel.nl/
  * Description: Toont een veilig, beheerbaar dienstenoverzicht met custom post type, shortcode, instellingen en CSV-import/export.
- * Version: 3.0.0
+ * Version: 3.0.1
  * Author: Webactueel
  * Author URI: https://webactueel.nl/
  * Text Domain: dienstenoverzicht
  * Domain Path: /languages
  * Requires at least: 6.0
- * Tested up to: 6.9
+ * Tested up to: 7.1
  * Requires PHP: 7.4
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DIENSTENOVERZICHT_VERSION', '3.0.0' );
+define( 'DIENSTENOVERZICHT_VERSION', '3.0.1' );
 define( 'DIENSTENOVERZICHT_PLUGIN_FILE', __FILE__ );
 define( 'DIENSTENOVERZICHT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'DIENSTENOVERZICHT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
