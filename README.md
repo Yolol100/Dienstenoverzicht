@@ -1,6 +1,6 @@
 # Dienstenoverzicht — Manageable WordPress Service Directory
 
-> **WordPress/PHP · custom post type · taxonomy · shortcode · AJAX filtering · CSV import/export**
+> **Supporting portfolio project · WordPress/PHP · custom post type · taxonomy · AJAX filtering · CSV import/export**
 
 Dienstenoverzicht is a WordPress plugin for managing business services in a structured content model and displaying them through a searchable, filterable frontend overview. It combines editor-friendly administration with a lightweight public interface.
 
