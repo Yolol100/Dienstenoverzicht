@@ -4,7 +4,7 @@
 
 Dienstenoverzicht is a WordPress plugin for managing business services in a structured content model and displaying them through a searchable, filterable frontend overview. It combines editor-friendly administration with a lightweight public interface.
 
-**Built by:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio cases](https://andrewbaeten.nl/category/cases)
+**Developer profile:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio cases](https://andrewbaeten.nl/category/cases)
 
 ## What it demonstrates
 
