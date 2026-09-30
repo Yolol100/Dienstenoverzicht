@@ -18,6 +18,16 @@ Dienstenoverzicht is a WordPress plugin for managing business services as struct
 | Maintainability | WordPress-native APIs, scoped assets and separated runtime classes |
 | Compatibility | Repository-native WordPress compatibility workflow |
 
+## Workflow at a glance
+
+```mermaid
+flowchart LR
+    A[Admin edits or CSV import] --> B[Service custom post type]
+    B --> C[Category taxonomy and service metadata]
+    C --> D[Shortcode and AJAX search/filter]
+    D --> E[Public service directory]
+```
+
 ## Usage
 
 After activation:
