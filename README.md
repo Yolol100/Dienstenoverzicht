@@ -58,6 +58,12 @@ The plugin includes administrator-facing CSV import/export for controlled bulk m
 
 See [`readme.txt`](readme.txt) for WordPress-specific installation notes and release history.
 
+## Verification
+
+GitHub Actions runs PHP syntax checks and clean activation checks on WordPress 6.0/PHP 7.4 and WordPress 7.1/PHP 8.3, then rejects PHP fatal errors, parse errors, warnings, deprecations and notices from the runtime debug log.
+
+See [WordPress compatibility](.github/workflows/wordpress-compatibility.yml) for the executable contract.
+
 ## Repository structure
 
 ```text
