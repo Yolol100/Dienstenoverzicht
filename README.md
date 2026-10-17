@@ -14,6 +14,14 @@ A visitor can browse a searchable service overview instead of scanning one long 
 
 **Scope of evidence:** The repository documents the shortcode, structured-content model and clean WordPress activation checks. A live browser screenshot, measured improvement or deployed client case is **not** supplied here; these require a separately verified demonstration.
 
+## The problem in plain English
+
+A service business needs to publish and update many offerings without hand-editing every website page. This plugin stores each service as structured WordPress content and publishes a searchable directory using a shortcode.
+
+**For a visitor:** search and filter services by category. **For an editor:** update a service in WordPress and use a controlled CSV workflow for bulk maintenance. **For a developer:** inspect the custom post type, AJAX filtering, permission checks and compatibility tests below.
+
+This is a reusable plugin example, **not a claim of results for a specific client website**. No live interface screenshot is included because no source-backed public demo has been verified.
+
 ## What it demonstrates
 
 | Area | Implementation |
