@@ -6,6 +6,14 @@
 
 Dienstenoverzicht is a WordPress plugin for managing business services as structured content and presenting them through a searchable, filterable frontend directory. It combines an editor-friendly content model with a lightweight shortcode-based public interface.
 
+## What visitors and editors experience
+
+A visitor can browse a searchable service overview instead of scanning one long page. An editor manages the source information as structured WordPress services and categories, without rewriting the frontend layout for each new entry.
+
+**Review the experience on a staging WordPress site:** Install and activate the plugin, add sample services and categories, place `[dienstenoverzicht]` on a page, and try the search and category filters on desktop and mobile. The [CSV workflow](#csv-workflow) supports controlled editing outside the WordPress interface.
+
+**Scope of evidence:** The repository documents the shortcode, structured-content model and clean WordPress activation checks. A live browser screenshot, measured improvement or deployed client case is **not** supplied here; these require a separately verified demonstration.
+
 ## What it demonstrates
 
 | Area | Implementation |
