@@ -2,7 +2,7 @@
 
 > **Supporting portfolio project · WordPress/PHP · custom post type · taxonomy · AJAX filtering · CSV import/export**
 
-**Developer profile:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio cases](https://andrewbaeten.nl/category/cases)
+**Developer profile:** [Andrew Baeten](https://github.com/Yolol100) · [GitHub project index](https://github.com/Yolol100?tab=repositories)
 
 Dienstenoverzicht is a WordPress plugin for managing business services as structured content and presenting them through a searchable, filterable frontend directory. It combines an editor-friendly content model with a lightweight shortcode-based public interface.
 
