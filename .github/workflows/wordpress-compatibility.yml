@@ -90,6 +90,7 @@ jobs:
           php /tmp/wp-cli.phar plugin activate dienstenoverzicht --path="$runtime"
           php /tmp/wp-cli.phar plugin status dienstenoverzicht --path="$runtime"
           php /tmp/wp-cli.phar eval 'echo post_type_exists("dienst") || post_type_exists("diensten") ? "post-type-ok\n" : "plugin-loaded\n";' --path="$runtime"
+          php /tmp/wp-cli.phar eval-file "$plugin_dir/tests/wordpress-shortcode-smoke.php" --path="$runtime"
 
       - name: Reject runtime PHP errors
         if: always()
