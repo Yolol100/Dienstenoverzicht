@@ -57,6 +57,9 @@ jobs:
           set -euo pipefail
           find . -type f -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
 
+      - name: Verify CSV spreadsheet formula prefixes and roundtrip
+        run: php tests/csv-cell-regression.php
+
       - name: Install verified WP-CLI 2.12.0
         shell: bash
         run: |
