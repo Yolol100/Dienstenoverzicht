@@ -28,19 +28,23 @@ final class Dienstenoverzicht_Shortcode {
 	/**
 	 * Renders the shortcode.
 	 *
-	 * @param array<string,mixed> $atts Shortcode attributes.
+	 * @param array<string,mixed>|string $atts Shortcode attributes, which can be empty text on older WordPress.
 	 */
-	public static function render_shortcode( array $atts = [] ): string {
+	public static function render_shortcode( $atts = [] ): string {
 		$atts = shortcode_atts(
 			[
 				'category' => 0,
 			],
-			$atts,
+			is_array( $atts ) ? $atts : [],
 			self::SHORTCODE
 		);
 
 		$options        = self::get_options();
 		$initial_cat_id = absint( $atts['category'] );
+		static $instance = 0;
+		++$instance;
+		$category_control_id = 'dienstenoverzicht-categorie-' . $instance;
+		$results_id          = 'dienstenoverzicht-results-' . $instance;
 		$category_terms = get_terms(
 			[
 				'taxonomy'   => Dienstenoverzicht_Taxonomy::TAXONOMY,
@@ -60,8 +64,8 @@ final class Dienstenoverzicht_Shortcode {
 
 				<?php if ( ! is_wp_error( $category_terms ) && ! empty( $category_terms ) ) : ?>
 					<form class="faceted-filter dienstenoverzicht-filter" aria-label="<?php esc_attr_e( 'Diensten filteren', self::TEXT_DOMAIN ); ?>">
-						<label for="dienstenoverzicht-categorie"><?php esc_html_e( 'Categorie', self::TEXT_DOMAIN ); ?></label>
-						<select id="dienstenoverzicht-categorie" name="dienstenoverzicht_categorie">
+						<label for="<?php echo esc_attr( $category_control_id ); ?>"><?php esc_html_e( 'Categorie', self::TEXT_DOMAIN ); ?></label>
+						<select id="<?php echo esc_attr( $category_control_id ); ?>" name="dienstenoverzicht_categorie">
 							<option value="0"><?php esc_html_e( 'Alle categorieën', self::TEXT_DOMAIN ); ?></option>
 							<?php foreach ( $category_terms as $term ) : ?>
 								<option value="<?php echo esc_attr( $term->term_id ); ?>" <?php selected( $initial_cat_id, $term->term_id ); ?>><?php echo esc_html( $term->name ); ?></option>
@@ -71,7 +75,7 @@ final class Dienstenoverzicht_Shortcode {
 				<?php endif; ?>
 			</div>
 
-			<div id="dienstenoverzicht-results" class="dienstenoverzicht" aria-live="polite">
+			<div id="<?php echo esc_attr( $results_id ); ?>" class="dienstenoverzicht" aria-live="polite">
 				<?php echo self::render_diensten( $options, $initial_cat_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		</section>

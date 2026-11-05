@@ -367,28 +367,35 @@ final class Dienstenoverzicht_ImportExport {
 	}
 
 	/**
-	 * Prevents spreadsheet formula execution when exported CSV files are opened.
+	 * Detect spreadsheet formulas, including leading spaces, controls and quotes.
+	 *
+	 * This is a defense for the plugin CSV roundtrip, not a universal guarantee
+	 * for spreadsheets which modify quoted cells when saving and reopening.
+	 */
+	private static function has_csv_formula_prefix( string $value ): bool {
+		return 1 === preg_match( '/^(?:[\'\s]*[=+\-@\x{FF0B}\x{FF0D}\x{FF1D}\x{FF20}]|[\' ]*[\t\r\n])/u', $value );
+	}
+
+	/**
+	 * Prefix cells that could be interpreted as formulas in spreadsheet software.
 	 */
 	private static function escape_csv_formula( $value ): string {
 		$value = (string) $value;
 
-		if ( '' !== $value && preg_match( '/^[=+\-@]/', $value ) ) {
-			return "'" . $value;
-		}
-
-		return $value;
+		return self::has_csv_formula_prefix( $value ) ? "'" . $value : $value;
 	}
 
 	/**
-	 * Removes the protective export prefix during re-import.
+	 * Remove only the corresponding protective prefix during CSV re-import.
 	 */
 	private static function remove_csv_formula_prefix( $value ): string {
 		$value = (string) $value;
 
-		if ( 0 === strpos( $value, "'" ) && isset( $value[1] ) && preg_match( '/^[=+\-@]/', $value[1] ) ) {
+		if ( 0 === strpos( $value, "'" ) && self::has_csv_formula_prefix( substr( $value, 1 ) ) ) {
 			return substr( $value, 1 );
 		}
 
 		return $value;
 	}
+
 }
